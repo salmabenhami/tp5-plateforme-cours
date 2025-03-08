@@ -16,6 +16,10 @@ const coursSchema=new mongoose.Schema({
     prix:{
         type:Number,
         required:true
+    },
+    disponible: {
+        type: Boolean,
+        default: true, 
     }
 })
 module.exports=mongoose.model('Cours',coursSchema)

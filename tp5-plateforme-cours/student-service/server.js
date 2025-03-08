@@ -4,6 +4,8 @@ const mongoose=require('mongoose')
 const server=express()
 server.use(express.json())
 const verifyToken=require('./middleware/verifyToken')
+const studentroute=require('./routes/student')
+server.use('/student',verifyToken,studentroute)
 const mongoURI=`${process.env.URL_MONGOOSE}/${process.env.DBNAME}`
 mongoose.connect(mongoURI)
   .then(()=>console.log(`Connexion réussie à MongoDB à l'URL: ${mongoURI}`))

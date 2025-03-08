@@ -40,7 +40,7 @@ router.post('/login',(req,res)=>{
                     if(!isMatch){
                         return res.status(400).json({msg:'Mot de passe incorrect'})
                     }
-                    const token=jwt.sign({email:user.email,name:user.name},process.env.JWT_SECRET,{expiresIn:'1h'})
+                    const token=jwt.sign({email:user.email,name:user.name},process.env.JWT_SECRET)
                     res.json({token})
                 })
                 .catch(err=>{
